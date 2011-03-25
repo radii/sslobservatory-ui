@@ -1,0 +1,20 @@
+<html><head>
+<script type="text/javascript" src="jquery-1.5.1.js"></script>
+<script type="text/javascript">
+function render_cert(fp) {
+    var observatory = 'http://observatory.hexapodia.org/ssl/fp/';
+
+    $.getJSON(observatory + fp, function(data) {
+	    document.write("Properties for " + fp + "<br>");
+	    document.write("<table>");
+	    $(['RSA_Modulus_Bits', 'Serial Number', 'Issuer', 'ip',
+		'fingerprint', 'Subject']).each(function() {
+		    document.write("<tr><td>" + this + "</td><td>" + data[this] + "</td></tr>");
+	    })
+	    document.write("</table>");
+	})
+}
+</script>
+</head><body onload="render_cert(location.search.substring(1));">
+placeholder
+</body>
