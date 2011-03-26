@@ -1,0 +1,32 @@
+body {
+    font-family: "Helvetica", "Arial", "Sans-serif";
+    background-color: #333;
+    color: #eee;
+    font-size: 0.75em;
+}
+h2 {
+    font-weight: normal;
+    margin-top: 1.5em;
+}
+h2 #keynum {
+    color: #fd3;
+
+}
+table, th, td {
+    border: 1px solid black;
+
+}
+table, tr {
+    //background-color: #808AA0;
+    background-color: #6f7b88;
+}
+.even {
+    background-color: #5E6972;
+}
+
+td {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
