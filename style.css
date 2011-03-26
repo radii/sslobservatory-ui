@@ -1,5 +1,5 @@
 body {
-    font-family: "Helvetica", "Arial", "Sans-serif";
+    font-family: "Helvetica", "Arial", "sans-serif";
     background-color: #333;
     color: #eee;
     font-size: 0.75em;
@@ -17,7 +17,6 @@ table, th, td {
 
 }
 table, tr {
-    //background-color: #808AA0;
     background-color: #6f7b88;
 }
 .even {
@@ -29,4 +28,8 @@ td {
     padding-right: 1em;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
+}
+
+.debug {
+    background-color: #660000;
 }
