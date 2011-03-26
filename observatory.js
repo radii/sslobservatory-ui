@@ -10,6 +10,7 @@ function render_cert(src, fp) {
 		  'Validity:Not Before', 'Validity:Not After',
 		  'ext:X509v3 Authority Key Identifier:keyid',
 		  'ext:X509v3 Certificate Policies:Policy',
+		  'ext:X509v3 CRL Distribution Points',
 		 ]
     $('#debug').append('json=' + json);
     $.getJSON(src + fp, function(data) {
