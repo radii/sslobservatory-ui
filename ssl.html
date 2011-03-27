@@ -4,8 +4,20 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">
     <script type="text/javascript" src="jquery-1.5.1.js"></script>
     <script type="text/javascript" src="observatory.js"></script>
+<script type="text/javascript">
+function arg(key) {
+    var params = location.search.substring(1).split('&');
+    for (var i in params) {
+	var kv = params[i].split('=', 2);
+	if (kv[0] == key) {
+	    return kv[1];
+	}
+    }
+}
+</script>
+
 </head>
-<body onload="render_cert('http://observatory.hexapodia.org/ssl/fp/', location.search.substring(1));">
+<body onload="render_cert('http://observatory.hexapodia.org/ssl/fp/', arg('sha1'));">
 <div id="content"></div>
 <div class="debug" id="debug"></div>
 <div class="footer"><a href="http://github.com/radii/sslobservatory-ui">sslobservatory-ui</a> - <a href="http://github.com/radii/sslobservatory-api">sslobservatory-api</a> - <a href="http://eff.org/observatory">EFF SSL Observatory</a>
