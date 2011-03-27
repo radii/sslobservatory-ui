@@ -34,16 +34,12 @@ function render_cert(src, fp) {
             morsel('Algorithm', 'algorithm', data['Signature Algorithm']);
 
             // x509 crap
-            morsel('X.509 Subject', 'subject', data['Subject']);
-            morsel('X.509 Authority Key Identifier', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']);
-            $('#content').append("</ul>");
-
-            //$('#content').append("<table id='data'>");
-            //$(fields).each(function() {
-            //        $('#content').append("<tr><td>" + this + "</td><td>" + data[this] + "</td></tr>");
-            //})
-            //$('#content').append("</table>");
-            //$('tr:nth-child(2n+1)').addClass('even');
+            $('#content').append('<li>X.509 data <span class="moreclick" id="x509more">[more]</span><div id="x509opt"><ul>');
+                morsel('X.509 Subject', 'subject', data['Subject']);
+                morsel('Authority Key Identifier', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']);
+                morsel('Certificate Policies:Policy', 'cert_policies', data['ext:X509v3 Certificate Policies:Policy']);
+                morsel('CRL Distribution Points', 'crl', data['ext:X509v3 CRL Distribution Points']);
+            $('#content').append("</ul></div></li>");
         })
 }
 
