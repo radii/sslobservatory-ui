@@ -47,3 +47,17 @@ function render_cert(src, fp) {
         })
 }
 
+function submit_searchbox() {
+    console.log("submit_searchbox called");
+    var x = $('#shasearch').serializeArray();
+    console.log('x = ' + x);
+    $(x).each(function(i, m) {
+	var e = m.value.toLowerCase().replace(/:/g,"");
+	console.log('i = ' + i + ' e = ' + e);
+	if (!e.match(/^[0-9a-f]{40}$/)) {
+	    alert('invalid SHA1 "' + e + '".');
+	    return;
+	}
+	window.location.search = "?sha1=" + e;
+    })
+}

@@ -8,14 +8,15 @@
 </head>
 <body onload="render_cert('sample.json', '');">
 <div id="searchbox">
-    <form action="submit_searchbox();" id="shasearch" method="get">
+    <form action="javascript:submit_searchbox();" id="shasearch" method="get">
 	<span class="label">SHA1:</span>
 	<input type="search" class="search shavalidate" name="sha1" placeholder="hash&hellip;"/>
-	<input type="submit" value="Search" class="button">
+	<input type="submit" value="Search" class="button" name="go">
     </form>
 </div>
 <div id="content"></div>
+<div class="footer">
 <div class="debug" id="debug">debug: </div>
-<div class="footer"><a href="http://github.com/radii/sslobservatory-ui">sslobservatory-ui</a> - <a href="http://github.com/radii/sslobservatory-api">sslobservatory-api</a> - <a href="http://eff.org/observatory">EFF SSL Observatory</a>
+<a href="http://github.com/radii/sslobservatory-ui">sslobservatory-ui</a> - <a href="http://github.com/radii/sslobservatory-api">sslobservatory-api</a> - <a href="http://eff.org/observatory">EFF SSL Observatory</a>
 </body>
 </html>
