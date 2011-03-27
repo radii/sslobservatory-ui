@@ -2,7 +2,7 @@ body {
     font-family: "Helvetica", "Arial", "sans-serif";
     background-color: #333;
     color: #eee;
-    font-size: 0.75em;
+    font-size: 0.85em;
 }
 h2 {
     font-weight: normal;
@@ -30,6 +30,22 @@ td {
     padding-bottom: 0.5em;
 }
 
+.label {
+    font-weight: bold;
+}
+
+ul {
+    border: 2px solid #ccc;
+}
+li {
+    border: 2px solid #ccc;
+    background-color: #383;
+}
 .debug {
-    background-color: #660000;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: .5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: #822;
 }
