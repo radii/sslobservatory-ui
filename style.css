@@ -37,6 +37,15 @@ td {
 ul {
 }
 li {
+    white-space: nowrap;
+}
+.defaulthidden {
+    display: none;
+}
+.moreclick {
+    border: 1px;
+    border-color: white;
+    background-color: #702;
 }
 .debug {
     padding-left: 1em;
