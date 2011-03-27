@@ -26,8 +26,16 @@ function render_cert(src, fp) {
                     '</span></li>');
             }
             $('#content').append('<ul class=>');
-            morsel('Key size', 'bits', data['RSA_Modulus_Bits']);
+            // stuff about the key
+            morsel('IP', 'ip', data['ip']);
+
+            // key details
+            morsel('Key size', 'modulus_bits', data['RSA_Modulus_Bits']);
+            morsel('Algorithm', 'algorithm', data['Signature Algorithm']);
+
+            // x509 crap
             morsel('X.509 Subject', 'subject', data['Subject']);
+            morsel('X.509 Authority Key Identifier', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']);
             $('#content').append("</ul>");
 
             //$('#content').append("<table id='data'>");
