@@ -1,0 +1,9 @@
+SSL Observatory Web UI
+----------------------
+
+This software is a web interface for the EFF SSL Observatory
+<http://eff.org/observatory>.
+
+This program is free software, licensed under the GNU AGPL version 3.0.
+
+Copyright (C) 2011 Andy Isaacson <adi@hexapodia.org> and contributors
