@@ -23,7 +23,9 @@ table, tr {
 .even {
     background-color: #5E6972;
 }
-
+a {
+    color: #c02;
+}
 td {
     padding-left: 1em;
     padding-right: 1em;
