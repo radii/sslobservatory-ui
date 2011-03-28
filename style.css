@@ -49,6 +49,10 @@ li {
     border: 1px;
     border-color: white;
     background-color: #702;
+	cursor: pointer;
+}
+.moreclick:hover {
+	background-color: #207;
 }
 .debug {
     padding-left: 1em;
@@ -66,4 +70,8 @@ li {
 .footer {
     margin-top: 3em;
     clear: both;
+}
+
+span.modulus, span.signature, span.serialnumber, span.akid {
+	font-family: monospace;
 }
