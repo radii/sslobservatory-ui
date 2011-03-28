@@ -4,6 +4,8 @@ function dbg(msg) {
 
 function render_cert(src, fp) {
     var json = src + fp;
+    var pem = json + "/pem";
+    var der = json + "/der";
     var fields = ['Subject', 'RSA_Modulus_Bits', 'fingerprint',
                   'Issuer', 'Serial Number',
                   'ext:X509v3 Key Usage', 'ext:X509v3 Extended Key Usage',
@@ -23,15 +25,33 @@ function render_cert(src, fp) {
                     + title + ':</span> <span class="' + name + '">' + content + 
                     '</span></li>');
             }
-            $('#content').append("<h2>Properties for<span id='keynum'> " + data['fingerprint'] +
-                "</span></h2><br><ul>" +
+	    var fetchtime = data['fetchtime'];
+	    fetchtime = String(new Date(fetchtime * 1000)) + " (" + String(fetchtime) + ")";
+            $('#content').append("<h2>Properties for <span id='keynum'>" + data['fingerprint'] +
+                "</span></h2>" +
+		"<span id='altlinks'>Other formats: <a href='" + json + "'>json</a> - " +
+		"<a href='" + pem + "'>pem</a> - " +
+		"<a href='" + der + "'>der</a>" +
+		"<br><ul>" +
             // stuff about the use of the key
             morsel('IP', 'ip', data['ip']) +
+	    morsel('Observed at', 'fetchtime', fetchtime) +
 
             // key details
-            morsel('Key size', 'modulus_bits', data['RSA_Modulus_Bits']) +
-            morsel('Algorithm', 'algorithm', data['Signature Algorithm']) +
-            morsel('RSA modulus', 'modulus', data['RSA Public Key:Modulus']) +
+	    '<li><span class="label">RSA key: </span> ' + data['RSA_Modulus_Bits'] + ' bits ' +
+	    '<span class="moreclick" id="keymore">[more]</span><div class="defaulthidden" id="keyopt"><ul>' +
+		morsel('Key size', 'modulus_bits', data['RSA_Modulus_Bits']) +
+		morsel('modulus', 'modulus', data['RSA Public Key:Modulus']) +
+	    '</ul></div></li>' +
+
+	    // signature
+	    '<li><span class="label">Signature</span> <span class="moreclick" id="sigmore">[more]</span><div class="defaulthidden" id="sigopt"><ul>' +
+		morsel('Signature', 'signature', data['Signature']) +
+		morsel('Algorithm', 'algorithm', data['Signature Algorithm']) +
+		morsel('Authority Key ID', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']) +
+		morsel('Valid From', 'startdate', data['startdate']) +
+		morsel('Valid To', 'enddate', data['enddate']) +
+	    '</ul></div></li>' +
 
             // x509 crap
             '<li><span class="label">X.509</span> <span class="moreclick" id="x509more">[more]</span><div class="defaulthidden" id="x509opt"><ul>' +
@@ -42,6 +62,14 @@ function render_cert(src, fp) {
             '</ul></div></li>');
             $('#x509more').click(function() {
                     $('#x509opt').toggle('fast');
+                    $(self).html("[hide]");
+                    })
+            $('#sigmore').click(function() {
+                    $('#sigopt').toggle('fast');
+                    $(self).html("[hide]");
+                    })
+            $('#keymore').click(function() {
+                    $('#keyopt').toggle('fast');
                     $(self).html("[hide]");
                     })
         })
