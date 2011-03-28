@@ -41,12 +41,15 @@ function render_cert(src, fp) {
 	    '<li><span class="label">RSA key: </span> ' + data['RSA_Modulus_Bits'] + ' bits ' +
 	    '<span class="moreclick" id="keymore">[more]</span><div class="defaulthidden" id="keyopt"><ul>' +
 		morsel('Key size', 'modulus_bits', data['RSA_Modulus_Bits']) +
-		morsel('modulus', 'modulus', data['RSA Public Key:Modulus']) +
+		morsel('Modulus', 'modulus', data['RSA Public Key:Modulus']) +
+		morsel('Exponent', 'exponent', data['Subject Public Key Info:RSA Public Key:Exponent']) +
 	    '</ul></div></li>' +
 
 	    // signature
 	    '<li><span class="label">Signature</span> <span class="moreclick" id="sigmore">[more]</span><div class="defaulthidden" id="sigopt"><ul>' +
 		morsel('Signature', 'signature', data['Signature']) +
+		morsel('Issuer', 'issuer', data['Issuer']) +
+		morsel('Serial Number', 'serialnumber', data['Serial Number']) +
 		morsel('Algorithm', 'algorithm', data['Signature Algorithm']) +
 		morsel('Authority Key ID', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']) +
 		morsel('Valid From', 'startdate', data['startdate']) +
@@ -59,6 +62,7 @@ function render_cert(src, fp) {
                 morsel('Authority Key Identifier', 'akid', data['ext:X509v3 Authority Key Identifier:keyid']) +
                 morsel('Certificate Policies:Policy', 'cert_policies', data['ext:X509v3 Certificate Policies:Policy']) +
                 morsel('CRL Distribution Points', 'crl', data['ext:X509v3 CRL Distribution Points']) +
+                morsel('Key Usage', 'x509keyusage', data['ext:X509v3 Key Usage']) +
             '</ul></div></li>');
             $('#x509more').click(function() {
                     $('#x509opt').toggle('fast');
