@@ -20,12 +20,12 @@ function arg(key) {
 <div id="searchbox">
     <form action="javascript:submit_searchbox();" id="shasearch" method="get">
 	<span class="label">SHA1:</span>
-	<input type="search" class="search shavalidate" datasrc="sha1" placeholder="hash&hellip;"/>
-	<input type="submit" value="Search" class="button" datasrc="go">
+	<input type="search" class="search shavalidate" name="sha1" placeholder="hash&hellip;"/>
+	<input type="submit" value="Search" class="button" name="go">
     </form>
 </div>
 <div id="content">
-<h2>Properties for <span id='keynum' datasrc='keyhead'></span></h2>
+<h2>Properties for <span id='keynum' class='data' datasrc='fingerprint'></span></h2>
 <span id='altlinks'>Other formats: <ul datasrc='altlinklist'></ul></span>
 <ul>
 <li class='ip'><span class='label'>IP:</span> <span class='ip data' datasrc='ip'></span></li>
