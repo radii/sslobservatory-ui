@@ -15,17 +15,50 @@ function arg(key) {
     }
 }
 </script>
-
 </head>
 <body onload="render_cert('/ssl/fp/', arg('sha1'));">
 <div id="searchbox">
     <form action="javascript:submit_searchbox();" id="shasearch" method="get">
 	<span class="label">SHA1:</span>
-	<input type="search" class="search shavalidate" name="sha1" placeholder="hash&hellip;"/>
-	<input type="submit" value="Search" class="button" name="go">
+	<input type="search" class="search shavalidate" datasrc="sha1" placeholder="hash&hellip;"/>
+	<input type="submit" value="Search" class="button" datasrc="go">
     </form>
 </div>
-<div id="content"></div>
+<div id="content">
+<h2>Properties for <span id='keynum' datasrc='keyhead'></span></h2>
+<span id='altlinks'>Other formats: <ul datasrc='altlinklist'></ul></span>
+<ul>
+<li class='ip'><span class='label'>IP:</span> <span class='ip data' datasrc='ip'></span></li>
+<li class='fetchtime'><span class='label'>Observed at:</span> <span class='fetchtime data' datasrc='fetchtime'></span></li>
+<li><span class='label'>RSA key: </span> <span class='modulus_bits data' datasrc='RSA_Modulus_Bits'></span><span class='moreclick' id='keymore'>[more]</span><div class="defaulthidden" id="keyopt"><ul>
+<li class='modulus_bits'><span class='label'>Key size:</span> <span class='modulus_bits data' datasrc='RSA_Modulus_Bits'></span></li>
+<li class='modulus'><span class='label'>Modulus:</span> <span class='modulus data' datasrc='RSA Public Key:Modulus'></span></li>
+<li class='exponent'><span class='label'>Exponent:</span> <span class='exponent data' datasrc='Subject Public Key Info:RSA Public Key:Exponent'></span></li>
+</ul></div></li>
+
+
+<!-- signature -->
+<li><span class="label">Signature</span> <span class="moreclick" id="sigmore">[more]</span><div class="defaulthidden" id="sigopt"><ul>
+<li class='signature'><span class='label'>Signature:</span> <span class='signature data' datasrc='Signature'></span></li>
+<li class='issuer'><span class='label'>Issuer:</span> <span class='issuer data' datasrc='Issuer'></span></li>
+<li class='serialnumber'><span class='label'>Serial Number:</span> <span class='serialnumber data' datasrc='Serial Number'></span></li>
+<li class='algorithm'><span class='label'>Algorithm:</span> <span class='algorithm data' datasrc='Signature Algorithm'></span></li>
+<li class='akid'><span class='label'>Authority Key ID:</span> <span class='akid data' datasrc='ext:X509v3 Authority Key Identifier:keyid'></span></li>
+<li class='startdate'><span class='label'>Valid From:</span> <span class='startdate data' datasrc='startdate'></span></li>
+<li class='enddate'><span class='label'>Valid To:</span> <span class='enddate data' datasrc='enddate'></span></li>
+</ul></div></li>
+
+<!-- x509 crap -->
+<li><span class="label">X.509</span> <span class="moreclick" id="x509more">[more]</span><div class="defaulthidden" id="x509opt"><ul>
+<li class='subject'><span class='label'>X.509 Subject:</span> <span class='subject data' datasrc='Subject'></span></li>
+<li class='akid'><span class='label'>Authority Key Identifier:</span> <span class='akid data' datasrc='ext:X509v3 Authority Key Identifier:keyid'></span></li>
+<li class='cert_policies'><span class='label'>Certificate Policies:Policy:</span> <span class='cert_policies data' datasrc='ext:X509v3 Certificate Policies:Policy'></span></li>
+<li class='crl'><span class='label'>CRL Distribution Points:</span> <span class='crl data' datasrc='ext:X509v3 CRL Distribution Points'></span></li>
+<li class='x509keyusage'><span class='label'>Key Usage:</span> <span class='x509keyusage data' datasrc='ext:X509v3 Key Usage'></span></li>
+</ul></div></li>
+
+
+</div>
 <div class="footer">
 <div class="debug" id="debug">debug: </div>
 <a href="https://github.com/radii/sslobservatory-ui">sslobservatory-ui</a> - <a href="https://github.com/radii/sslobservatory-api">sslobservatory-api</a> - <a href="https://eff.org/observatory">EFF SSL Observatory</a>
