@@ -6,8 +6,6 @@ more complicated UI things:
  - make all IPs hoverable or clickable to get whois info (pull github/vbfox?)
  - do the same for hostnames
 
-data presentation thoughts:
- - rather than programmatically iterating fields and populating an empty div,
-   have empty divs with tags indicating which fields go in them, and populate
-   them when data arrives.  Or at least, replace structure-in-code with
-   structured data.
+Features:
+ - search on CN (will require schema additions)
+ - hash prefix support
