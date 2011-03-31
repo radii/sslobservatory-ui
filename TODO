@@ -1,3 +1,5 @@
+ - "LOADING" div that goes away when we've successfully completed rendering
+ - loading div should go to "failed" if no success in 15 seconds
  - new color scheme that doesn't make people assume I'm a blind wombat.
  - more web20ish UI elements.  I like the default github scheme.
  - fix date presentation, mix of JS Date and SQL datetime (ewww).
