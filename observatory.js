@@ -13,30 +13,23 @@ function render_cert(src, fp) {
                 dbg("#data each i=" + i + " key=" + key);
                 $(this).html(data[key]);
             })
+	    function clickmore(id) {
+		$(id).toggle('fast');
+		if ($(this).html() == "[hide]") {
+		    $(this).html("[show]");
+		} else {
+		    $(this).html("[hide]");
+		}
+	    }
             $('#x509more').click(function() {
-                    $('#x509opt').toggle('fast');
-                    if ($(this).html() == "[hide]") {
-			$(this).html("[show]");
-		    } else {
-			$(this).html("[hide]");
-                    }
+		clickmore('#x509opt');
 	    })
             $('#sigmore').click(function() {
-                    $('#sigopt').toggle('fast');
-                    if ($(this).html() == "[hide]") {
-			$(this).html("[show]");
-		    } else {
-			$(this).html("[hide]");
-                    }
-                    })
+		clickmore('#sigopt');
+	    })
             $('#keymore').click(function() {
-                    $('#keyopt').toggle('fast');
-                    if ($(this).html() == "[hide]") {
-			$(this).html("[show]");
-		    } else {
-			$(this).html("[hide]");
-                    }
-                    })
+		clickmore('#keyopt');
+	    })
         })
 }
 
