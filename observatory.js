@@ -15,15 +15,27 @@ function render_cert(src, fp) {
             })
             $('#x509more').click(function() {
                     $('#x509opt').toggle('fast');
-                    $(self).html("[hide]");
-                    })
+                    if ($(this).html() == "[hide]") {
+			$(this).html("[show]");
+		    } else {
+			$(this).html("[hide]");
+                    }
+	    })
             $('#sigmore').click(function() {
                     $('#sigopt').toggle('fast');
-                    $(self).html("[hide]");
+                    if ($(this).html() == "[hide]") {
+			$(this).html("[show]");
+		    } else {
+			$(this).html("[hide]");
+                    }
                     })
             $('#keymore').click(function() {
                     $('#keyopt').toggle('fast');
-                    $(self).html("[hide]");
+                    if ($(this).html() == "[hide]") {
+			$(this).html("[show]");
+		    } else {
+			$(this).html("[hide]");
+                    }
                     })
         })
 }
