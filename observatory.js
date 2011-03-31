@@ -10,7 +10,7 @@ function render_cert(src, fp) {
     $.getJSON(json, function(data) {
             $('.data').each(function(i, m) {
                 var key = $(this).attr('datasrc');
-                console.log("#data each i=" + i + " key=" + key);
+                dbg("#data each i=" + i + " key=" + key);
                 $(this).html(data[key]);
             })
             $('#x509more').click(function() {
@@ -41,12 +41,12 @@ function render_cert(src, fp) {
 }
 
 function submit_searchbox() {
-    console.log("submit_searchbox called");
+    dbg("submit_searchbox called");
     var x = $('#shasearch').serializeArray();
-    console.log('x = ' + x);
+    dbg('x = ' + x);
     $(x).each(function(i, m) {
         var e = m.value.toLowerCase().replace(/:/g,"");
-        console.log('i = ' + i + ' e = ' + e);
+        dbg('i = ' + i + ' e = ' + e);
         if (!e.match(/^[0-9a-f]{40}$/)) {
             alert('invalid SHA1 "' + e + '".');
             return;
