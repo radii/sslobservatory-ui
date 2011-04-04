@@ -11,7 +11,8 @@ function render_cert(src, fp) {
             $('.data').each(function(i, m) {
                 var key = $(this).attr('datasrc');
                 dbg("#data each i=" + i + " key=" + key);
-                $(this).html(data[key]);
+                if (key in data)
+                    $(this).html(data[key]);
             })
             function clickmore(elem, id) {
                 $(id).toggle('fast');
