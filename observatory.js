@@ -21,12 +21,12 @@ function render_cert(src, fp) {
                     elem.html("[hide]");
                 }
             }
-	    $('.time_t').each(function(i, m) {
-		var t = $(this).html();
-		if (t.match(/^[0-9]+$/)) {
-		    $(this).html(new Date(t * 1000) + " (" + t + ")");
-		}
-	    })
+            $('.time_t').each(function(i, m) {
+                var t = $(this).html();
+                if (t.match(/^[0-9]+$/)) {
+                    $(this).html(new Date(t * 1000) + " (" + t + ")");
+                }
+            })
             $('#x509more').click(function() {
                 clickmore($(this), '#x509opt');
             })
