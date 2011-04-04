@@ -3,6 +3,7 @@
  - new color scheme that doesn't make people assume I'm a blind wombat.
  - more web20ish UI elements.  I like the default github scheme.
  - fix date presentation, mix of JS Date and SQL datetime (ewww).
+ - remove alert() on invalid SHA1 submission
 
 more complicated UI things:
  - make all IPs hoverable or clickable to get whois info (pull github/vbfox?)
