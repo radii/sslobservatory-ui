@@ -26,7 +26,9 @@
 <ul>
 <li class='ip'><span class='label'>IP:</span> <span class='ip data' datasrc='ip'></span></li>
 <li class='fetchtime'><span class='label'>Observed at:</span> <span class='fetchtime data' datasrc='fetchtime'></span></li>
-<li><span class='label'>RSA key: </span> <span class='modulus_bits data' datasrc='RSA_Modulus_Bits'></span><span class='moreclick' id='keymore'>[more]</span><div class="defaulthidden" id="keyopt"><ul>
+
+<!-- key -->
+<li><span class='label'>RSA key: </span> <span class='modulus_bits data' datasrc='RSA_Modulus_Bits'></span> <span class='moreclick' id='keymore'>[more]</span><div class="defaulthidden" id="keyopt"><ul>
 <li class='modulus_bits'><span class='label'>Key size:</span> <span class='modulus_bits data' datasrc='RSA_Modulus_Bits'></span></li>
 <li class='modulus'><span class='label'>Modulus:</span> <span class='modulus data' datasrc='RSA Public Key:Modulus'></span></li>
 <li class='exponent'><span class='label'>Exponent:</span> <span class='exponent data' datasrc='Subject Public Key Info:RSA Public Key:Exponent'></span></li>
@@ -50,6 +52,7 @@
 <li class='akid'><span class='label'>Authority Key Identifier:</span> <span class='akid data' datasrc='ext:X509v3 Authority Key Identifier:keyid'></span></li>
 <li class='cert_policies'><span class='label'>Certificate Policies:Policy:</span> <span class='cert_policies data' datasrc='ext:X509v3 Certificate Policies:Policy'></span></li>
 <li class='crl'><span class='label'>CRL Distribution Points:</span> <span class='crl data' datasrc='ext:X509v3 CRL Distribution Points'></span></li>
+<li class='ocsp'><span class='label'>OCSP - URI:</span> <span class='ocsp data' datasrc='ext:Authority Information Access:OCSP - URI'></span></li>
 <li class='x509keyusage'><span class='label'>Key Usage:</span> <span class='x509keyusage data' datasrc='ext:X509v3 Key Usage'></span></li>
 </ul></div></li>
 
