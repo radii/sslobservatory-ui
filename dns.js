@@ -11,7 +11,7 @@ dns = {};
             field = 'A';
         }
         
-        var url = jsonpUrl + nameToResolve + '/' + field;
+        var url = baseUrl + nameToResolve + '/' + field;
         
         jQuery.ajax({ url: url, dataType: dataType, success: callback });
     };
@@ -41,7 +41,7 @@ dns = {};
         return {
             firstSeen: new Date(arr[0] * 1000*60*60*24),
             lastSeen: new Date(arr[1] * 1000*60*60*24),
-            timesSeen: arr[2]
+            timesSeen: Number(arr[2])
         };
     };
     
@@ -51,11 +51,12 @@ dns = {};
         var nameToResolve = sha1 + '.certs.googlednstest.com';
         
         dns.query(nameToResolve, 'TXT', function(data) {
-            if (data === undefined || data.answer === undefined || data.answer.rdata === undefined
-                || data.answer.rdata.length == 0) {
+            if (data === undefined || data.answer === undefined || data.answer.length == 0
+                || data.answer[0] === undefined || data.answer[0].rdata === undefined
+                || data.answer[0].rdata.length == 0) {
                 callback(undefined);
             } else {
-                callback(parseGoogleCatalogAnswer(data.answer.rdata[0]));
+                callback(parseGoogleCatalogAnswer(data.answer[0].rdata[0]));
             }
         });
     };
