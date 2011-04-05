@@ -75,3 +75,19 @@ li {
 span.modulus, span.signature, span.serialnumber, span.akid {
 	font-family: monospace;
 }
+
+#googleCatalog {
+    display: none;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+#googleCatalog.known {
+    display: inline;
+    color: green;
+}
+
+#googleCatalog.unknown {
+    display: inline;
+    color: red;
+}

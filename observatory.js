@@ -37,6 +37,10 @@ function render_cert(src, fp) {
             $('#keymore').click(function() {
                 clickmore($(this), '#keyopt');
             })
+            
+            var fingerprint = /SHA1 Fingerprint=(.*)/.exec(data.fingerprint);
+            fingerprint = fingerprint[1].replace(/:/g, '').toLowerCase();
+            dns.queryGoogleCertificateCatalog(fingerprint, display_google_certificate_catalog_status);
         })
 }
 
@@ -53,4 +57,23 @@ function submit_searchbox() {
         }
         window.location.search = "?sha1=" + e;
     })
+}
+
+function display_google_certificate_catalog_status(status) {
+    var span = $('#googleCatalog');
+    span.toggleClass('known', status !== undefined);
+    span.toggleClass('unknown', status === undefined);
+    
+    if (status === undefined) {
+        span.text('Certificate unknown to Google');
+        span.tipTip({ defaultPosition: 'right', maxWidth: 'auto', content: 'Google never saw this certificate.' });
+    } else {
+        span.text('Google know this certificate');
+        
+        var content = 'Google saw this certificate <strong>' + status.timesSeen + '</strong> times.';
+        content += '<ul><li>The first time was on <strong>' + status.firstSeen + '</strong></li>';
+        content += '<li>The last time was on <strong>' + status.lastSeen + '</strong></li></ul>';
+        span.tipTip({ defaultPosition: 'right', maxWidth: 'auto', content: content });
+    }
+    //span.css('display', 'inline');
 }
