@@ -75,5 +75,4 @@ function display_google_certificate_catalog_status(status) {
         content += '<li>The last time was on <strong>' + status.lastSeen + '</strong></li></ul>';
         span.tipTip({ defaultPosition: 'right', maxWidth: 'auto', content: content });
     }
-    //span.css('display', 'inline');
 }
