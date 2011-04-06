@@ -86,6 +86,6 @@ function display_google_certificate_catalog_status(status) {
         var content = 'Google saw this certificate <strong>' + status.timesSeen + '</strong> times.';
         content += '<ul><li>The first time was on <strong>' + status.firstSeen + '</strong></li>';
         content += '<li>The last time was on <strong>' + status.lastSeen + '</strong></li></ul>';
-        span.tipTip({ defaultPosition: 'right', maxWidth: 'auto', content: content });
+        span.tipTip({ defaultPosition: 'top', maxWidth: 'auto', content: content });
     }
 }
