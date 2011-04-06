@@ -42,10 +42,10 @@ dns = {};
         }
         
         dns.query(nameToResolve, 'PTR', function(data) {
-            if (data === undefined || data.answer === undefined || data.answer.rdata === undefined) {
+            if (data === undefined || data.answer === undefined || data.answer.length == 0) {
                 callback(undefined);
             } else {
-                callback(data.answer.rdata);
+                callback(data.answer[0].rdata);
             }
         });
     };

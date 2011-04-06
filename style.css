@@ -91,3 +91,7 @@ span.modulus, span.signature, span.serialnumber, span.akid {
     display: inline;
     color: red;
 }
+
+abbr, .withReverseDnsInfos {
+    border-bottom: 1px dotted darkgrey;
+}

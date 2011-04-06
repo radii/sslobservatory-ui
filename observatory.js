@@ -41,6 +41,7 @@ function render_cert(src, fp) {
             var fingerprint = /SHA1 Fingerprint=(.*)/.exec(data.fingerprint);
             fingerprint = fingerprint[1].replace(/:/g, '').toLowerCase();
             dns.queryGoogleCertificateCatalog(fingerprint, display_google_certificate_catalog_status);
+            dns.queryReverse(data.ip, display_ip_reverse_dns);
         })
 }
 
@@ -57,6 +58,18 @@ function submit_searchbox() {
         }
         window.location.search = "?sha1=" + e;
     })
+}
+
+function display_ip_reverse_dns(infos) {
+    var content = "No reverse DNS information found";
+    
+    if (infos !== undefined) {
+        content = 'Reverse DNS : <strong>' + infos + '</strong>';
+    }
+    
+    var element = $('span.ip').filter('.data');
+    element.addClass('withReverseDnsInfos');
+    element.tipTip({ defaultPosition: 'top', maxWidth: 'auto', content: content });
 }
 
 function display_google_certificate_catalog_status(status) {
