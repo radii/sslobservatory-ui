@@ -1,5 +1,5 @@
 dns = {};
-(function(undefined) {
+(function($, undefined) {
     
     // Having a standard json call here will be a lot more secure.
     var baseUrl = 'http://dig.jsondns.org/IN/';
@@ -13,7 +13,7 @@ dns = {};
         
         var url = baseUrl + nameToResolve + '/' + field;
         
-        jQuery.ajax({ url: url, dataType: dataType, success: callback });
+        $.ajax({ url: url, dataType: dataType, success: callback });
     };
     
     dns.queryReverse = function(ip, callback) {
@@ -60,4 +60,4 @@ dns = {};
             }
         });
     };
-})();
+})(jQuery);
