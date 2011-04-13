@@ -37,6 +37,7 @@ function render_cert(src, fp) {
             $('#keymore').click(function() {
                 clickmore($(this), '#keyopt');
             })
+            $('#jsonlink').attr('href', json);
             
             var fingerprint = /SHA1 Fingerprint=(.*)/.exec(data.fingerprint);
             fingerprint = fingerprint[1].replace(/:/g, '').toLowerCase();
