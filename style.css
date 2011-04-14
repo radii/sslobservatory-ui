@@ -62,6 +62,7 @@ li {
     padding-bottom: 0.5em;
     background-color: #822;
     display: none;
+    white-space: pre-wrap;
 }
 #searchbox {
     float: right;

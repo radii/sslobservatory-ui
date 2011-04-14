@@ -1,5 +1,5 @@
 function dbg(msg) {
-    $('#debug').append(msg);
+    $('#debug').append(msg + '\n');
 }
 
 function render_cert(src, fp) {
@@ -38,7 +38,7 @@ function render_cert(src, fp) {
                 clickmore($(this), '#keyopt');
             })
             $('#jsonlink').attr('href', json);
-            
+
             var fingerprint = /SHA1 Fingerprint=(.*)/.exec(data.fingerprint);
             fingerprint = fingerprint[1].replace(/:/g, '').toLowerCase();
             dns.queryGoogleCertificateCatalog(fingerprint, display_google_certificate_catalog_status);
