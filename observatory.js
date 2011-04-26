@@ -52,6 +52,8 @@ function submit_searchbox() {
     dbg('x = ' + x);
     $(x).each(function(i, m) {
         var e = m.value.toLowerCase().replace(/:/g,"");
+	e = e.replace(/ *$/, "");
+	e = e.replace(/^ */, "");
         dbg('i = ' + i + ' e = ' + e);
         if (!e.match(/^[0-9a-f]{40}$/)) {
             alert('invalid SHA1 "' + e + '".');
