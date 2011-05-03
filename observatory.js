@@ -16,10 +16,10 @@ function render_cert(src, fp) {
             })
             function clickmore(elem, id) {
                 $(id).toggle('fast');
-                if (elem.html() == "[hide]") {
-                    elem.html("[show]");
+                if (elem.html() == "hide") {
+                    elem.html("show");
                 } else {
-                    elem.html("[hide]");
+                    elem.html("hide");
                 }
             }
             $('.time_t').each(function(i, m) {
